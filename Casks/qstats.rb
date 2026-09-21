@@ -20,12 +20,6 @@ cask "qstats" do
 
   app "Qstats.app"
 
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-rd", "com.apple.quarantine", "#{appdir}/Qstats.app"],
-                   sudo: false
-  end
-
   uninstall quit: "com.qghs.Qstats"
 
   zap trash: [
