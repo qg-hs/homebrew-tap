@@ -1,9 +1,9 @@
 cask "qstats" do
   arch arm: "apple-silicon", intel: "intel"
 
-  version "1.2.0"
-  sha256 arm:   "32aa8779a45ffbe743c594c1acc0846afddb28266a14e86f0634eb0236f2f39a",
-         intel: "418faacfd1ab222dc7a9d6df428d28f896bfaae49b2e099464f2263670297e65"
+  version "1.4.0"
+  sha256 arm:   "4d9f764ba999d7442a397aff3780b87531fa9c69ec408fcbe3fc35fb4a3f31db",
+         intel: "fba1e369e063151691183a2b43288054e17c7af29b643d58e768673bf81bae52"
 
   url "https://github.com/qg-hs/Qstats/releases/download/v#{version}/Qstats-#{version}-#{arch}.dmg"
   name "Qstats"
@@ -16,9 +16,15 @@ cask "qstats" do
   end
 
   auto_updates true
-  depends_on macos: :ventura
+  depends_on macos: ">= :ventura"
 
   app "Qstats.app"
+
+  postflight do
+    system_command "xattr",
+                   args: ["-rd", "com.apple.quarantine", "#{appdir}/Qstats.app"],
+                   sudo: false
+  end
 
   uninstall quit: "com.qghs.Qstats"
 
