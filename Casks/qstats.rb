@@ -1,9 +1,9 @@
 cask "qstats" do
   arch arm: "apple-silicon", intel: "intel"
 
-  version "1.4.0"
-  sha256 arm:   "4d9f764ba999d7442a397aff3780b87531fa9c69ec408fcbe3fc35fb4a3f31db",
-         intel: "fba1e369e063151691183a2b43288054e17c7af29b643d58e768673bf81bae52"
+  version "1.5.0"
+  sha256 arm:   "11f7ecaf3e107af7b6ab3479341bfe2b992d32265b2a58ef00341823824a0075",
+         intel: "ec4518a4448a4b829a45296d183c0d7d03af01b84e8862730292b25ee8dc6ce7"
 
   url "https://github.com/qg-hs/Qstats/releases/download/v#{version}/Qstats-#{version}-#{arch}.dmg"
   name "Qstats"
